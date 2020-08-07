@@ -82,8 +82,9 @@
 				6059E90624DC6B860024E6F1 /* Controllers */,
 				6059E90E24DC6D1F0024E6F1 /* Views */,
 				6059E90924DC6CD40024E6F1 /* Helpers */,
-				6059E90824DC6CC10024E6F1 /* Extensions */,
 				6059E90C24DC6CF80024E6F1 /* Storyboards */,
+				6059E8FB24DBB6060024E6F1 /* Assets.xcassets */,
+				6059E90824DC6CC10024E6F1 /* Extensions */,
 				6059E90D24DC6D060024E6F1 /* Supporting Files */,
 			);
 			path = Exchangeagram;
@@ -132,7 +133,6 @@
 				6059E8F824DBB6020024E6F1 /* Main.storyboard */,
 				6059E90F24DCA69C0024E6F1 /* Login.storyboard */,
 				6059E8FD24DBB6060024E6F1 /* LaunchScreen.storyboard */,
-				6059E8FB24DBB6060024E6F1 /* Assets.xcassets */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -140,8 +140,8 @@
 		6059E90D24DC6D060024E6F1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6059E91324DCC6F50024E6F1 /* GoogleService-Info.plist */,
 				6059E90024DBB6060024E6F1 /* Info.plist */,
+				6059E91324DCC6F50024E6F1 /* GoogleService-Info.plist */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
