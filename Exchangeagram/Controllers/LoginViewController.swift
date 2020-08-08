@@ -2,7 +2,7 @@
 //  LoginViewController.swift
 //  Exchangeagram
 //
-//  Created by Ck2 Jedi on 8/6/20.
+//  Created by Caye on 8/6/20.
 //  Copyright © 2020 caye. All rights reserved.
 //
 
@@ -50,11 +50,11 @@ extension LoginViewController: FUIAuthDelegate {
 
         let userRef = Database.database().reference().child("users").child(user.uid)
 
-        userRef.observeSingleEvent(of: .value, with: { (snapshot) in
+        userRef.observeSingleEvent(of: .value, with: { [unowned self] (snapshot) in
             if let user = User(snapshot: snapshot) {
                 print("Welcome back, \(user.username).")
             } else {
-                print("New user!")
+                self.performSegue(withIdentifier: "toCreateUsername", sender: self)
             }
         })
     }
