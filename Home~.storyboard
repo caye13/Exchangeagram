@@ -25,6 +25,22 @@
             </objects>
             <point key="canvasLocation" x="-2299" y="271"/>
         </scene>
+        <!--Home View Controller-->
+        <scene sceneID="CZy-6o-tmf">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nk0-cY-Zsb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController id="PIu-kB-Ib7" customClass="HomeViewController" customModule="Exchangeagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xhc-od-N9u">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="fGa-0z-fES"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="7QB-7Y-91G"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="-265" y="995"/>
+        </scene>
         <!--Main Tab Bar Controller-->
         <scene sceneID="nhk-VZ-NB4">
             <objects>
@@ -76,22 +92,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Dbb-aS-51Z" kind="relationship" relationship="rootViewController" id="sDg-Y8-qBg"/>
+                        <segue destination="PIu-kB-Ib7" kind="relationship" relationship="rootViewController" id="sDg-Y8-qBg"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lQi-EC-z9S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-265.21739130434787" y="270.53571428571428"/>
-        </scene>
-        <!--Home-->
-        <scene sceneID="uK8-WZ-WbZ">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Home" id="Dbb-aS-51Z" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="aN7-p9-udk"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="k5C-Cl-81S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-265" y="995"/>
         </scene>
     </scenes>
     <resources>
