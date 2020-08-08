@@ -10,6 +10,7 @@ import UIKit
 import Kingfisher
 
 class HomeViewController: UIViewController {
+    let paginationHelper = MGPaginationHelper<Post>(serviceMethod: UserService.timeline)
     
     @IBOutlet var tableView: UITableView!
    
@@ -28,10 +29,11 @@ class HomeViewController: UIViewController {
 
         configureTableView()
         reloadTimeline()
+        
     }
 
-    @objc func reloadTimeline() {
-        UserService.timeline { (posts) in
+    func reloadTimeline() {
+        self.paginationHelper.reloadData(completion: { [unowned self] (posts) in
             self.posts = posts
 
             if self.refreshControl.isRefreshing {
@@ -39,8 +41,9 @@ class HomeViewController: UIViewController {
             }
 
             self.tableView.reloadData()
-        }
+        })
     }
+    
 }
 
 extension HomeViewController: UITableViewDataSource {
@@ -48,31 +51,29 @@ extension HomeViewController: UITableViewDataSource {
         return 3
     }
     
-
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let post = posts[indexPath.section]
 
         switch indexPath.row {
-        case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "PostHeaderCell") as! PostHeaderCell
-            cell.usernameLabel.text = post.poster.username
+            case 0:
+                let cell: PostHeaderCell = tableView.dequeueReusableCell()
+                cell.usernameLable.text = post.poster.username
 
-            return cell
+                return cell
 
-        case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "PostImageCell") as! PostImageCell
-            let imageURL = URL(string: post.imageURL)
-            cell.postImageView.kf.setImage(with: imageURL)
+            case 1:
+                let cell: PostImageCell = tableView.dequeueReusableCell()
+                let imageURL = URL(string: post.imageURL)
+                cell.postImageView.kf.setImage(with: imageURL)
 
-            return cell
+                return cell
 
-        case 2:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "PostActionCell") as! PostActionCell
-            cell.delegate = self
-            configureCell(cell, with: post)
-            
-            return cell
-            
+            case 2:
+                let cell: PostActionCell = tableView.dequeueReusableCell()
+                cell.delegate = self
+                configureCell(cell, with: post)
+
+                return cell
 
         default:
             fatalError("Error: unexpected indexPath.")
@@ -100,20 +101,15 @@ extension HomeViewController: UITableViewDataSource {
 }
 
 extension HomeViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch indexPath.row {
-        case 0:
-            return PostHeaderCell.height
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.section >= posts.count - 1 {
+            paginationHelper.paginate(completion: { [unowned self] (posts) in
+                self.posts.append(contentsOf: posts)
 
-        case 1:
-            let post = posts[indexPath.section]
-            return post.imageHeight
-
-        case 2:
-            return PostHeaderCell.height
-
-        default:
-            fatalError()
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            })
         }
     }
 }
