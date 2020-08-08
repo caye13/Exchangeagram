@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6059E8F324DBB6020024E6F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6059E8F224DBB6020024E6F1 /* AppDelegate.swift */; };
-		6059E8F724DBB6020024E6F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6059E8F624DBB6020024E6F1 /* ViewController.swift */; };
 		6059E8FA24DBB6020024E6F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6059E8F824DBB6020024E6F1 /* Main.storyboard */; };
 		6059E8FC24DBB6060024E6F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6059E8FB24DBB6060024E6F1 /* Assets.xcassets */; };
 		6059E8FF24DBB6060024E6F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6059E8FD24DBB6060024E6F1 /* LaunchScreen.storyboard */; };
@@ -19,6 +18,7 @@
 		6059E91824DE2EF80024E6F1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6059E91724DE2EF80024E6F1 /* User.swift */; };
 		6059E91A24DE33090024E6F1 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6059E91924DE33090024E6F1 /* UserService.swift */; };
 		6059E91C24DE3CEC0024E6F1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6059E91B24DE3CEC0024E6F1 /* Constants.swift */; };
+		6059E91E24DE3ECC0024E6F1 /* Storyboard+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6059E91D24DE3ECC0024E6F1 /* Storyboard+Utility.swift */; };
 		C4999F129CA6D6C2F0A99F70 /* Pods_Exchangeagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A995390133B4507DF3804E2 /* Pods_Exchangeagram.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,7 +26,6 @@
 		5EFBA756B49446BBD1BB138D /* Pods-Exchangeagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Exchangeagram.release.xcconfig"; path = "Target Support Files/Pods-Exchangeagram/Pods-Exchangeagram.release.xcconfig"; sourceTree = "<group>"; };
 		6059E8EF24DBB6020024E6F1 /* Exchangeagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Exchangeagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6059E8F224DBB6020024E6F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6059E8F624DBB6020024E6F1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6059E8F924DBB6020024E6F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6059E8FB24DBB6060024E6F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6059E8FE24DBB6060024E6F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -38,6 +37,7 @@
 		6059E91724DE2EF80024E6F1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		6059E91924DE33090024E6F1 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		6059E91B24DE3CEC0024E6F1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		6059E91D24DE3ECC0024E6F1 /* Storyboard+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storyboard+Utility.swift"; sourceTree = "<group>"; };
 		6A995390133B4507DF3804E2 /* Pods_Exchangeagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Exchangeagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0E691AF6B97C6DD0BAFD2FE /* Pods-Exchangeagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Exchangeagram.debug.xcconfig"; path = "Target Support Files/Pods-Exchangeagram/Pods-Exchangeagram.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,7 +101,6 @@
 		6059E90624DC6B860024E6F1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				6059E8F624DBB6020024E6F1 /* ViewController.swift */,
 				6059E91124DCA9D60024E6F1 /* LoginViewController.swift */,
 				6059E91524DE27B20024E6F1 /* CreateUsernameViewController.swift */,
 			);
@@ -111,6 +110,7 @@
 		6059E90824DC6CC10024E6F1 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				6059E91D24DE3ECC0024E6F1 /* Storyboard+Utility.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -311,7 +311,7 @@
 				6059E91624DE27B20024E6F1 /* CreateUsernameViewController.swift in Sources */,
 				6059E91224DCA9D60024E6F1 /* LoginViewController.swift in Sources */,
 				6059E91A24DE33090024E6F1 /* UserService.swift in Sources */,
-				6059E8F724DBB6020024E6F1 /* ViewController.swift in Sources */,
+				6059E91E24DE3ECC0024E6F1 /* Storyboard+Utility.swift in Sources */,
 				6059E91C24DE3CEC0024E6F1 /* Constants.swift in Sources */,
 				6059E91824DE2EF80024E6F1 /* User.swift in Sources */,
 				6059E8F324DBB6020024E6F1 /* AppDelegate.swift in Sources */,
