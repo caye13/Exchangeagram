@@ -14,7 +14,8 @@ class HomeViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
    
     var posts = [Post]()
-    
+    let refreshControl = UIRefreshControl()
+
     let timestampFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short
@@ -24,16 +25,22 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         configureTableView()
-        
-        UserService.posts(for: User.current) { (posts) in
+        reloadTimeline()
+    }
+
+    @objc func reloadTimeline() {
+        UserService.timeline { (posts) in
             self.posts = posts
+
+            if self.refreshControl.isRefreshing {
+                self.refreshControl.endRefreshing()
+            }
+
             self.tableView.reloadData()
         }
-        
     }
-    
 }
 
 extension HomeViewController: UITableViewDataSource {
@@ -48,7 +55,7 @@ extension HomeViewController: UITableViewDataSource {
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "PostHeaderCell") as! PostHeaderCell
-            cell.usernameLable.text = User.current.username
+            cell.usernameLabel.text = post.poster.username
 
             return cell
 
@@ -75,6 +82,9 @@ extension HomeViewController: UITableViewDataSource {
     func configureTableView() {
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = .none
+        
+        refreshControl.addTarget(self, action: #selector(reloadTimeline), for: .valueChanged)
+        tableView.addSubview(refreshControl)
     }
     
     
