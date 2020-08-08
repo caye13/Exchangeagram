@@ -2,7 +2,7 @@
 //  MainTabBarController.swift
 //  Exchangeagram
 //
-//  Created by Ck2 Jedi on 8/7/20.
+//  Created by Caye on 8/7/20.
 //  Copyright © 2020 caye. All rights reserved.
 //
 
@@ -12,8 +12,8 @@ class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        photoHelper.completionHandler = { image in
-            print("handle image")
+       photoHelper.completionHandler = { image in
+            PostService.create(for: image)
         }
         
         delegate = self
