@@ -2,12 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Home.storyboard">
-   </FileRef>
-   <FileRef
-      location = "group:Exchangeagram/Storyboards/Base.lproj/Home.storyboard">
-   </FileRef>
-   <FileRef
       location = "group:Exchangeagram.xcodeproj">
    </FileRef>
    <FileRef
