@@ -10,6 +10,8 @@ import Foundation
 import FirebaseDatabase.FIRDataSnapshot
 
 class User: Codable {
+    
+    var isFollowed = false
 
     let uid: String
     let username: String

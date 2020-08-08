@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/caye/Desktop/cs_projects/Make School Projects/IOS Apps Track/Exchangeagram/Exchangeagram/Storyboards/FindFriends.storyboard">
+   </FileRef>
+   <FileRef
       location = "group:Exchangeagram.xcodeproj">
    </FileRef>
    <FileRef

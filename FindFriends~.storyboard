@@ -86,20 +86,29 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="cHM-CU-pOf" kind="show" id="SpD-0i-SRT"/>
+                        <segue destination="MWr-XJ-P2d" kind="show" id="SpD-0i-SRT"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eMq-35-4Kx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2339" y="370"/>
         </scene>
-        <!--FindFriends-->
-        <scene sceneID="czE-Y7-h00">
+        <!--Find Friends View Controller-->
+        <scene sceneID="8ZK-2e-7Vy">
             <objects>
-                <viewControllerPlaceholder storyboardName="FindFriends" id="cHM-CU-pOf" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="crj-Ws-Z2L"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YKB-lm-mre" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dzw-3D-Of5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController id="MWr-XJ-P2d" customClass="FindFriendsViewController" customModule="Exchangeagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Y4y-sO-69Z">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" tag="2" title="" selectedImage="tab_find_friends_black" id="I6k-R4-pR6">
+                        <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
+                    </tabBarItem>
+                    <navigationItem key="navigationItem" id="Son-Bh-wha"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
             </objects>
             <point key="canvasLocation" x="-2339" y="1139"/>
         </scene>
