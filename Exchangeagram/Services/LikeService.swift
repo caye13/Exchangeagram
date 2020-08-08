@@ -10,6 +10,15 @@ import Foundation
 import FirebaseDatabase
 
 struct LikeService {
+    
+    static func setIsLiked(_ isLiked: Bool, for post: Post, success: @escaping (Bool) -> Void) {
+        if isLiked {
+            create(for: post, success: success)
+        } else {
+            delete(for: post, success: success)
+        }
+    }
+    
     static func create(for post: Post, success: @escaping (Bool) -> Void) {
     
         guard let key = post.key else {
