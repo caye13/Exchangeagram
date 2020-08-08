@@ -48,13 +48,19 @@ extension LoginViewController: FUIAuthDelegate {
         guard let user = authDataResult?.user
             else { return }
 
-        let userRef = Database.database().reference().child("users").child(user.uid)
+        let ref = Database.database().reference().child("users").child(user.uid)
 
-        userRef.observeSingleEvent(of: .value, with: { [unowned self] (snapshot) in
+        ref.observeSingleEvent(of: .value, with: { [unowned self] (snapshot) in
             if let user = User(snapshot: snapshot) {
-                print("Welcome back, \(user.username).")
+                User.setCurrent(user)
+
+                let storyboard = UIStoryboard(name: "Main", bundle: .main)
+                if let initialViewController = storyboard.instantiateInitialViewController() {
+                    self.view.window?.rootViewController = initialViewController
+                }
             } else {
-                self.performSegue(withIdentifier: "toCreateUsername", sender: self)
+                // 1
+                self.performSegue(withIdentifier: Constants.Segue.toCreateUsername, sender: self)
             }
         })
     }
