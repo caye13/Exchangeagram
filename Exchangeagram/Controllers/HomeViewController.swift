@@ -32,7 +32,7 @@ class HomeViewController: UIViewController {
         
     }
 
-    func reloadTimeline() {
+    @objc func reloadTimeline() {
         self.paginationHelper.reloadData(completion: { [unowned self] (posts) in
             self.posts = posts
 
